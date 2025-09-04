@@ -3,13 +3,13 @@ import { InsuranceYear } from "@/utils/types";
 
 interface InsuranceTableProps {
   data: InsuranceYear[];
-}
+  irr : number}
 
-const InsuranceTable: React.FC<InsuranceTableProps> = ({ data }) => {
+const InsuranceTable: React.FC<InsuranceTableProps> = ({ data, irr }) => {
   return (
     <div className="max-w-5xl mx-auto mt-6 p-4 bg-white rounded-2xl shadow-lg">
       <h2 className="text-xl font-bold mb-4 text-center text-green-700">
-        Insurance Projection Table
+        Insurance Projection Table {irr * 100} % IRR
       </h2>
 
       <div className="overflow-x-auto">

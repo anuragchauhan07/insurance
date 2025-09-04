@@ -8,17 +8,25 @@ import InsuranceFormFields, {
 import InsuranceOutput from "@/components/InsuranceOutput";
 import { InsuranceYear } from "@/utils/types";
 
+type InsuranceResponse = {
+  projection: InsuranceYear;
+  irr: number;
+};
+
 const InsuranceForm: React.FC = () => {
   const BASE_URL = "http://127.0.0.1:8000";
-  const [data, setData] = useState<InsuranceYear[]>([]);
+  const [data, setData] = useState<InsuranceResponse>();
   const [isLoading, setIsLoading] = useState(false);
+  const [isData, setIsData] = useState(false);
 
   const onSubmit = async (formData: InsuranceFormData) => {
-    console.log("Validated Data:", formData);
+    console.log("Validated Data:", JSON.stringify(formData, null, 2));
+
     try {
       setIsLoading(true);
       const res = await axios.post(`${BASE_URL}/api/policy`, formData);
       setData(res.data);
+      setIsData(true);
     } catch (error) {
       console.log(error);
     } finally {
@@ -32,10 +40,10 @@ const InsuranceForm: React.FC = () => {
 
   return (
     <div className="bg-white p-6">
-      {data.length === 0 ? (
+      {!isData? (
         <InsuranceFormFields onSubmit={onSubmit} />
       ) : (
-        <InsuranceOutput data={data} />
+        <InsuranceOutput data={data?.projection || []} irr={data?.irr || 0} />
       )}
     </div>
   );

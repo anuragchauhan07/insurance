@@ -15,7 +15,7 @@ export const InsuranceSchema = z
   .object({
     dob: z.string().nonempty("Date of birth is required"),
     gender: z.nativeEnum(Gender),
-    sumAssured: z.number().min(5000000, "Minimum sum assured is 5,000,000"),
+    sumAssured: z.number().min(500000, "Minimum sum assured is 5,00,000"),
     modalPremium: z
       .number()
       .min(10000, "Premium must be at least 10,000")
