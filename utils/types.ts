@@ -7,7 +7,7 @@ export enum Gender {
 export enum PremiumFrequency {
   Yearly = 1,
   HalfYearly = 2,
-  Monthly = 4,
+  Monthly = 3,
 }
 
 export const GenderLabels: Record<Gender, string> = {

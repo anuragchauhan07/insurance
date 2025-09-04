@@ -104,7 +104,7 @@ const InsuranceFormFields: React.FC<InsuranceFormFieldsProps> = ({
       <div>
         <label className="block font-medium mb-1">Gender</label>
         <select
-          {...register("gender")}
+          {...register("gender", { setValueAs: (v) => Number(v) })}
           className="w-full border rounded-lg p-2"
         >
           {Object.values(Gender)
@@ -115,6 +115,31 @@ const InsuranceFormFields: React.FC<InsuranceFormFieldsProps> = ({
               </option>
             ))}
         </select>
+        {errors.gender && (
+          <p className="text-red-600 text-sm">{errors.gender.message}</p>
+        )}
+      </div>
+
+      {/* Premium Frequency */}
+      <div>
+        <label className="block font-medium mb-1">Premium Frequency</label>
+        <select
+          {...register("premiumFrequency", { setValueAs: (v) => Number(v) })}
+          className="w-full border rounded-lg p-2"
+        >
+          {Object.values(PremiumFrequency)
+            .filter((v) => typeof v === "number")
+            .map((value) => (
+              <option key={value} value={value}>
+                {PremiumFrequencyLabels[value as PremiumFrequency]}
+              </option>
+            ))}
+        </select>
+        {errors.premiumFrequency && (
+          <p className="text-red-600 text-sm">
+            {errors.premiumFrequency.message}
+          </p>
+        )}
       </div>
 
       {/* Sum Assured */}
@@ -144,7 +169,7 @@ const InsuranceFormFields: React.FC<InsuranceFormFieldsProps> = ({
       </div>
 
       {/* Premium Frequency */}
-      <div>
+      {/* <div>
         <label className="block font-medium mb-1">Premium Frequency</label>
         <select
           {...register("premiumFrequency")}
@@ -158,7 +183,7 @@ const InsuranceFormFields: React.FC<InsuranceFormFieldsProps> = ({
               </option>
             ))}
         </select>
-      </div>
+      </div> */}
 
       {/* PT */}
       <div>

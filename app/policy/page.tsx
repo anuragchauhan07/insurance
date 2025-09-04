@@ -9,7 +9,7 @@ import InsuranceOutput from "@/components/InsuranceOutput";
 import { InsuranceYear } from "@/utils/types";
 
 const InsuranceForm: React.FC = () => {
-  const BASE_URL = "";
+  const BASE_URL = "http://127.0.0.1:8000";
   const [data, setData] = useState<InsuranceYear[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -17,7 +17,7 @@ const InsuranceForm: React.FC = () => {
     console.log("Validated Data:", formData);
     try {
       setIsLoading(true);
-      const res = await axios.post(`${BASE_URL}/api/create`, formData);
+      const res = await axios.post(`${BASE_URL}/api/policy`, formData);
       setData(res.data);
     } catch (error) {
       console.log(error);
