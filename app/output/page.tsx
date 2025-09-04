@@ -19,37 +19,37 @@ const InsuranceOutput: React.FC<InsuranceOutputProps> = ({ plan }) => {
         <tbody>
           <tr className="bg-gray-50">
             <td className="p-3 font-medium border">Date of Birth</td>
-            {/* <td className="p-3 border">{plan.dob}</td> */}
+            <td className="p-3 border">{plan.dob}</td>
           </tr>
           <tr>
             <td className="p-3 font-medium border">Gender</td>
-            {/* <td className="p-3 border">{GenderLabels[plan.gender]}</td> */}
+            <td className="p-3 border">{GenderLabels[plan.gender]}</td>
           </tr>
           <tr className="bg-gray-50">
             <td className="p-3 font-medium border">Sum Assured</td>
-            {/* <td className="p-3 border">₹{plan.sumAssured.toLocaleString()}</td> */}
+            <td className="p-3 border">₹{plan.sumAssured.toLocaleString()}</td>
           </tr>
           <tr>
             <td className="p-3 font-medium border">Modal Premium</td>
             <td className="p-3 border">
-              {/* ₹{plan.modalPremium.toLocaleString()} */}
+              ₹{plan.modalPremium.toLocaleString()}
             </td>
           </tr>
           <tr className="bg-gray-50">
             <td className="p-3 font-medium border">Premium Frequency</td>
             <td className="p-3 border">
-              {/* {PremiumFrequencyLabels[plan.premiumFrequency]} */}
+              {PremiumFrequencyLabels[plan.premiumFrequency]}
             </td>
           </tr>
           <tr>
             <td className="p-3 font-medium border">Policy Term (PT)</td>
-            {/* <td className="p-3 border">{plan.pt} years</td> */}
+            <td className="p-3 border">{plan.pt} years</td>
           </tr>
           <tr className="bg-gray-50">
             <td className="p-3 font-medium border">
               Premium Payment Term (PPT)
             </td>
-            {/* <td className="p-3 border">{plan.ppt} years</td> */}
+            <td className="p-3 border">{plan.ppt} years</td>
           </tr>
         </tbody>
       </table>
