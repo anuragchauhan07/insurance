@@ -31,3 +31,16 @@ export interface InsurancePlan {
   pt: number;
   ppt: number;
 }
+
+// InsuranceYear.ts
+
+export interface InsuranceYear {
+  year: number;
+  premium: number;
+  sumAssured: number;
+  bonusRate: number;
+  bonusAmount: number;
+  totalBenefit: number;
+  netCashflow: number;
+}
+
